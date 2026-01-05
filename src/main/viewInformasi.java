@@ -172,7 +172,7 @@ public class viewInformasi extends javax.swing.JFrame {
                 .addComponent(jLabel19))
         );
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/anonim-circle.png"))); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/hamamzulfahmi-circle.png"))); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("Adwaita Sans", 1, 24)); // NOI18N
         jLabel21.setText("Hamam Zul Fahmi");
