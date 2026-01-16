@@ -647,15 +647,16 @@ public class viewAppKasirBeli extends javax.swing.JFrame {
         tabelCariBarang.addColumn("Nama Barang");
         tabelCariBarang.addColumn("Satuan");
         tabelCariBarang.addColumn("Harga");
+        tabelCariBarang.addColumn("Stok");
         tabelBarang.setModel(tabelCariBarang);
 
         try {
             Koneksi koneksiTampilTabel = new Koneksi();
 
-            String sql = "SELECT detail_barang.id_detail_barang, barang.nama_brg, detail_barang.satuan, detail_barang.harga_jual "
+            String sql = "SELECT detail_barang.id_detail_barang, barang.nama_brg, detail_barang.satuan, detail_barang.harga_jual, detail_barang.stok "
                     + "FROM barang INNER JOIN detail_barang "
                     + "ON barang.id_barang = detail_barang.id_barang "
-                    + "WHERE barang.nama_brg LIKE ? " // Tambahkan spasi sebelum ORDER BY
+                    + "WHERE barang.nama_brg LIKE ? "
                     + "ORDER BY barang.nama_brg ASC";
 
             PreparedStatement pstmt = koneksiTampilTabel.prepareStatement(sql);
@@ -667,7 +668,9 @@ public class viewAppKasirBeli extends javax.swing.JFrame {
                     rs.getString("id_detail_barang"),
                     rs.getString("nama_brg"),
                     rs.getString("satuan"),
-                    rs.getString("harga_jual")});
+                    rs.getString("harga_jual"),
+                    rs.getString("stok")
+                });
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error : " + e.getMessage());
