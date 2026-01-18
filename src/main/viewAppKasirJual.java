@@ -777,18 +777,18 @@ public class viewAppKasirJual extends javax.swing.JFrame {
                         uangKembalian = null;
                 if (rsDataMasterTransaksi.next()) {
                     idTransaksi = rsDataMasterTransaksi.getString("id_jual");
-                    tanggal = rsDataMasterTransaksi.getString("total_harga_barang");
+                    tanggal = rsDataMasterTransaksi.getString("tanggal");
                     totalFinalBarang = rsDataMasterTransaksi.getString("total_harga_barang");
                     uangDiterima = rsDataMasterTransaksi.getString("uang_diterima");
                     uangKembalian = rsDataMasterTransaksi.getString("uang_kembalian");
                 }
 
-                listStruk.addElement("--------------------------------------------------");
+                listStruk.addElement("-------------------------------------------------------");
                 listStruk.addElement("  TOKO NAWIR");
-                listStruk.addElement("--------------------------------------------------");
-                listStruk.addElement("  Tanggal            : " + idTransaksi);
-                listStruk.addElement("  ID Transaksi    : " + tanggal);
-                listStruk.addElement("--------------------------------------------------");
+                listStruk.addElement("-------------------------------------------------------");
+                listStruk.addElement("  Tanggal            : " + tanggal);
+                listStruk.addElement("  ID Transaksi    : " + idTransaksi);
+                listStruk.addElement("-------------------------------------------------------");
                 while (rsDataDetailTransaksi.next()) {
                     String namaBarang = rsDataDetailTransaksi.getString("nama_brg");
                     String qtyBarang = rsDataDetailTransaksi.getString("qty");
@@ -798,11 +798,11 @@ public class viewAppKasirJual extends javax.swing.JFrame {
                     listStruk.addElement("  - " + namaBarang);
                     listStruk.addElement("    " + qtyBarang + " x " + hargaBarang + " = Rp " + totalHargaBarang);
                 }
-                listStruk.addElement("--------------------------------------------------");
+                listStruk.addElement("-------------------------------------------------------");
                 listStruk.addElement("  Total Harga            : Rp " + totalFinalBarang);
                 listStruk.addElement("  Uang Diterima       : Rp " + uangDiterima);
                 listStruk.addElement("  Uang Kembalian    : Rp " + uangKembalian);
-                listStruk.addElement("--------------------------------------------------");
+                listStruk.addElement("-------------------------------------------------------");
                 this.listStruk.setModel(listStruk);
 
             } catch (Exception e) {
